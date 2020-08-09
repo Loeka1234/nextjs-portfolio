@@ -26,5 +26,5 @@ a {
 }
 
 body {
-	background: #011a27;
+	background: var(--background-primary);
 }

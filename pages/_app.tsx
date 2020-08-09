@@ -1,22 +1,15 @@
 import Layout from "../components/layout";
-import { ThemeProvider } from "styled-components";
 
 import "../styles/globals.css";
-
-const theme = {
-	background: "#011a27",
-	colors: {
-		primary: "white",
-	},
-};
+import { Providers } from "../components/Providers";
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<ThemeProvider theme={theme}>
+		<Providers>
 			<Layout>
 				<Component {...pageProps} />
 			</Layout>
-		</ThemeProvider>
+		</Providers>
 	);
 }
 

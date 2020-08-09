@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
 const Nav = styled.nav`
 	font-size: 2rem;
-	color: ${props => props.theme.colors.primary};
+	color: white;
 `;
 
 const NavItem = styled.li``;
