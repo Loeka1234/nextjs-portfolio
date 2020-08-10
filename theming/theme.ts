@@ -1,12 +1,15 @@
+// TODO: finish darkTheme
 export const darkTheme = {
 	background: {
-		primary: "#011a27",
+		primary: "#0F2557",
 	},
 	text: {
-		primary: "white",
+		primary: "#fff",
+		secondary: "#7ED5EA"
 	},
 };
 
+// TODO: Colors for lightTheme
 export const lightTheme = {
 	background: {
 		primary: "#011a27",

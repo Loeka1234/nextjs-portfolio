@@ -10,15 +10,15 @@ const SHeader = styled.header`
 `;
 
 const Logo = styled.h1<{ margin: number }>`
-	font-family: 'Megrim', cursive;
-	color: white;
+	font-family: "Megrim", cursive;
+	color: var(--text-primary);
 	margin: ${props => props.margin}px;
 	font-size: 3rem;
 `;
 
 const Nav = styled.nav`
 	font-size: 2rem;
-	color: white;
+	color: var(--text-primary);
 	position: relative;
 	display: flex;
 `;
@@ -35,7 +35,7 @@ const NavItem = styled.li<{ margin: number; padding: number }>`
 `;
 
 const UnderLine = styled.div<{ left: number; underlineWidth: number }>`
-	background: lightgreen;
+	background: var(--text-secondary);
 	border-radius: 1px;
 	position: absolute;
 	top: calc(50% + 10px);
@@ -57,7 +57,12 @@ export interface HeaderProps {
 	navMargin: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ navItems, margin, padding, navMargin }) => {
+const Header: React.FC<HeaderProps> = ({
+	navItems,
+	margin,
+	padding,
+	navMargin,
+}) => {
 	const refContainer = useRef(null);
 	const [widths, setWidths] = useState([]);
 	const [left, setLeft] = useState(0);
@@ -115,7 +120,11 @@ const Header: React.FC<HeaderProps> = ({ navItems, margin, padding, navMargin })
 
 	return (
 		<SHeader>
-			<Logo margin={navMargin}>Loeka Lievens</Logo>
+			<Link href="/">
+				<a>
+					<Logo margin={navMargin}>Loeka Lievens</Logo>
+				</a>
+			</Link>
 			<Nav>
 				<UnderLine left={left} underlineWidth={underlineWidth} />
 				<Ul ref={refContainer}>
