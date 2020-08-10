@@ -132,6 +132,7 @@ const Header: React.FC<HeaderProps> = ({
 							padding={padding}
 							onMouseEnter={() => handleEnter(i)}
 							onMouseLeave={() => handleLeave(i)}
+							key={i}
 						>
 							<Link href={path}>
 								<a>{name}</a>
