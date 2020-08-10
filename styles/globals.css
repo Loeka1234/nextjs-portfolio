@@ -24,7 +24,7 @@ a {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 
-	transition: color .5s ease-in-out, background .5s ease-in-out;
+	transition: background .5s ease-in-out;
 }
 
 body {
