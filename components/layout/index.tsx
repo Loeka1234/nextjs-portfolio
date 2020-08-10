@@ -25,7 +25,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 					path: "/blog",
 					name: "Blog"
 				}
-			]} />
+			]}
+			padding={30}
+			margin={0}
+			/>
 			<main>{children}</main>
             <Footer />
 		</>

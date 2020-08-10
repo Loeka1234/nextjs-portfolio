@@ -30,7 +30,7 @@ const Ul = styled.ul`
 
 const NavItem = styled.li<{ margin: number; padding: number }>`
 	display: inline-block;
-	margin: ${props => props.margin}px;
+	margin: ${props => props.margin}px 0;
 	padding: 0 ${props => props.padding}px;
 `;
 
@@ -52,17 +52,17 @@ export interface HeaderProps {
 		path: string;
 		name: string;
 	}[];
+	margin: number;
+	padding: number;
+	navMargin: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ navItems }) => {
+const Header: React.FC<HeaderProps> = ({ navItems, margin, padding, navMargin }) => {
 	const refContainer = useRef(null);
 	const [widths, setWidths] = useState([]);
 	const [left, setLeft] = useState(0);
 	const [underlineWidth, setUnderlineWidth] = useState(0);
 	const router = useRouter();
-
-	const margin = 20;
-	const padding = 10;
 
 	const defaultValue = () => {
 		const path = router.asPath;
@@ -115,13 +115,13 @@ const Header: React.FC<HeaderProps> = ({ navItems }) => {
 
 	return (
 		<SHeader>
-			<Logo margin={margin}>Loeka Lievens</Logo>
+			<Logo margin={navMargin}>Loeka Lievens</Logo>
 			<Nav>
 				<UnderLine left={left} underlineWidth={underlineWidth} />
 				<Ul ref={refContainer}>
 					{navItems.map(({ path, name }, i) => (
 						<NavItem
-							margin={margin}
+							margin={navMargin}
 							padding={padding}
 							onMouseEnter={() => handleEnter(i)}
 							onMouseLeave={() => handleLeave(i)}
