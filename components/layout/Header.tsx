@@ -38,9 +38,14 @@ const UnderLine = styled.div<{ left: number; underlineWidth: number }>`
 		width 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
 `;
 
-export interface HeaderProps {}
+export interface HeaderProps {
+	navItems: {
+		path: string;
+		name: string;
+	}[];
+}
 
-const Header: React.FC<HeaderProps> = ({}) => {
+const Header: React.FC<HeaderProps> = ({ navItems }) => {
 	const refContainer = useRef(null);
 	const [widths, setWidths] = useState([]);
 	const [left, setLeft] = useState(0);
@@ -52,27 +57,14 @@ const Header: React.FC<HeaderProps> = ({}) => {
 
 	const defaultValue = () => {
 		const path = router.asPath;
-		switch (path) {
-			case "/":
-				moveTo(0);
-				break;
-			case "/about":
-				moveTo(1);
-				break;
-			case "/projects":
-				moveTo(2);
-				break;
-			case "blog":
-				moveTo(3);
-				break;
-			default:
-				break;
+		for (let i = 0; i < navItems.length; i++) {
+			if (navItems[i].path === path) moveTo(i);
 		}
-	}
+	};
 
 	useEffect(() => {
 		defaultValue();
-	}, [widths])
+	}, [widths]);
 
 	useEffect(() => {
 		// Create array of NavItem widths
@@ -96,14 +88,14 @@ const Header: React.FC<HeaderProps> = ({}) => {
 		else if (amountEl === widths.length)
 			left += (margin + padding) * (widths.length * 2 - 1);
 		else left += (margin + padding) * (amountEl * 2 - 1);
-	
+
 		for (let i = 0; i < el; i++) {
 			left += widths[i] - padding * 2;
 		}
-	
+
 		setLeft(left);
 		setUnderlineWidth(widths[el] - padding * 2);
-	}
+	};
 
 	const handleEnter = (el: number) => {
 		moveTo(el);
@@ -117,46 +109,18 @@ const Header: React.FC<HeaderProps> = ({}) => {
 			<Nav>
 				<UnderLine left={left} underlineWidth={underlineWidth} />
 				<Ul ref={refContainer}>
-					<NavItem
-						margin={margin}
-						padding={padding}
-						onMouseEnter={() => handleEnter(0)}
-						onMouseLeave={() => handleLeave(0)}
-					>
-						<Link href="/">
-							<a>Home</a>
-						</Link>
-					</NavItem>
-					<NavItem
-						margin={margin}
-						padding={padding}
-						onMouseEnter={() => handleEnter(1)}
-						onMouseLeave={() => handleLeave(1)}
-					>
-						<Link href="/about">
-							<a>About</a>
-						</Link>
-					</NavItem>
-					<NavItem
-						margin={margin}
-						padding={padding}
-						onMouseEnter={() => handleEnter(2)}
-						onMouseLeave={() => handleLeave(2)}
-					>
-						<Link href="/projects">
-							<a>Projects</a>
-						</Link>
-					</NavItem>
-					<NavItem
-						margin={margin}
-						padding={padding}
-						onMouseEnter={() => handleEnter(3)}
-						onMouseLeave={() => handleLeave(3)}
-					>
-						<Link href="/blog">
-							<a>Blog</a>
-						</Link>
-					</NavItem>
+					{navItems.map(({ path, name }, i) => (
+						<NavItem
+							margin={margin}
+							padding={padding}
+							onMouseEnter={() => handleEnter(i)}
+							onMouseLeave={() => handleLeave(i)}
+						>
+							<Link href={path}>
+								<a>{name}</a>
+							</Link>
+						</NavItem>
+					))}
 				</Ul>
 			</Nav>
 		</SHeader>

@@ -8,7 +8,24 @@ export interface LayoutProps {}
 const Layout: React.FC<LayoutProps> = ({ children }) => {
 	return (
 		<>
-			<Header />
+			<Header navItems={[
+				{
+					path: "/",
+					name: "Home"
+				},
+				{
+					path: "/about",
+					name: "About"
+				},
+				{
+					path: "/projects",
+					name: "Projects"
+				},
+				{
+					path: "/blog",
+					name: "Blog"
+				}
+			]} />
 			<main>{children}</main>
             <Footer />
 		</>
