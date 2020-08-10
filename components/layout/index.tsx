@@ -28,6 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 			]}
 			padding={30}
 			margin={0}
+			navMargin={20}
 			/>
 			<main>{children}</main>
             <Footer />
