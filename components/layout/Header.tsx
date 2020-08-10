@@ -5,7 +5,15 @@ import Link from "next/link";
 
 const SHeader = styled.header`
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
+	align-items: center;
+`;
+
+const Logo = styled.h1<{ margin: number }>`
+	font-family: 'Megrim', cursive;
+	color: white;
+	margin: ${props => props.margin}px;
+	font-size: 3rem;
 `;
 
 const Nav = styled.nav`
@@ -30,12 +38,13 @@ const UnderLine = styled.div<{ left: number; underlineWidth: number }>`
 	background: lightgreen;
 	border-radius: 1px;
 	position: absolute;
-	top: calc(50% + 12px);
+	top: calc(50% + 10px);
 	left: ${props => props.left}px;
 	width: ${props => props.underlineWidth}px;
 	height: 3px;
 	transition: left 0.4s ease-in-out,
 		width 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+	pointer-events: none;
 `;
 
 export interface HeaderProps {
@@ -77,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ navItems }) => {
 				);
 				console.log(arrWidths);
 				setWidths(arrWidths);
-			}, 10);
+			}, 100);
 		}
 	}, [refContainer.current]);
 
@@ -106,6 +115,7 @@ const Header: React.FC<HeaderProps> = ({ navItems }) => {
 
 	return (
 		<SHeader>
+			<Logo margin={margin}>Loeka Lievens</Logo>
 			<Nav>
 				<UnderLine left={left} underlineWidth={underlineWidth} />
 				<Ul ref={refContainer}>
