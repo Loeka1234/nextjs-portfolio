@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
 						lightTheme={getThemeAsString(lightTheme)}
 						darkTheme={getThemeAsString(darkTheme)}
 					/>
+					<link rel="stylesheet" type="text/css" href="theming.css" />
 					<Main />
 					<NextScript />
 				</body>
