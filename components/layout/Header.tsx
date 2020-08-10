@@ -7,6 +7,7 @@ const SHeader = styled.header`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	background: var(--bg-primary-darker);
 `;
 
 const Logo = styled.h1<{ margin: number }>`
@@ -41,7 +42,7 @@ const UnderLine = styled.div<{ left: number; underlineWidth: number }>`
 	top: calc(50% + 10px);
 	left: ${props => props.left}px;
 	width: ${props => props.underlineWidth}px;
-	height: 3px;
+	height: 2.5px;
 	transition: left 0.4s ease-in-out,
 		width 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
 	pointer-events: none;
@@ -75,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({
 
 	useEffect(() => {
 		defaultValue();
-	}, [widths]);
+	}, [widths, router]);
 
 	useEffect(() => {
 		// Create array of NavItem widths

@@ -1,22 +1,28 @@
 // TODO: finish darkTheme
 export const darkTheme = {
-	background: {
-		primary: "#0F2557",
-		secondary: "#4B9FE1"
+	bg: {
+		primary: "#363636",
+		"primary-darker": "#1e1e1e",
+		secondary: "#086262",
+		"secondary-darker": "#033333"
 	},
 	text: {
 		primary: "#fff",
-		secondary: "#7ED5EA"
+		secondary: "#71cccc"
 	},
 };
 
 // TODO: Colors for lightTheme
 export const lightTheme = {
-	background: {
-		primary: "#011a27",
+	bg: {
+		primary: "#fff",
+		"primary-darker": "rgb(197, 195, 198)",
+		secondary: "#42b0b5",
+		"secondary-darker": "#3a9a9e"
 	},
 	text: {
-		primary: "white",
+		primary: "#252a34",
+		secondary: "#484f5e"
 	},
 }
 

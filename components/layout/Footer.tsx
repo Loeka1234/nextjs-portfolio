@@ -7,13 +7,15 @@ import {
 	AiFillGithub,
 } from "react-icons/ai";
 import { IconContext } from "react-icons/";
+import { useContext } from "react";
+import { ThemeContext } from "../Providers";
 
 const SFooter = styled.footer`
 	width: 100%;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	background: var(--background-secondary);
+	background: var(--bg-primary-darker);
 	div {
 		width: 300px;
 		display: flex;
@@ -23,6 +25,7 @@ const SFooter = styled.footer`
 	h1 {
 		font-size: 1.5em;
 		font-weight: 600;
+		margin: 1rem;
 	}
 `;
 
@@ -38,7 +41,7 @@ const Links = styled.div`
 			a {
 				transition: all .6s ease;
 				&:hover {
-					color: var(--background-primary);
+					color: var(--text-secondary);
 				}
 			}
 		}
@@ -52,11 +55,25 @@ const Links = styled.div`
 	}
 `;
 
+const Theme = styled.p`
+	background: var(--text-primary);
+	color: var(--bg-primary);
+	padding: .6rem 1rem;
+	border-radius: 3px;
+	margin: 0;
+	user-select: none;
+	&:hover {
+		cursor: pointer;
+	}
+`;
+
 export interface FooterProps {
 	navItems: NavItems;
 }
 
 const Footer: React.FC<FooterProps> = ({ navItems }) => {
+	const { theme, toggleTheme } = useContext(ThemeContext);
+
 	return (
 		<SFooter>
 			<Links>
@@ -72,6 +89,7 @@ const Footer: React.FC<FooterProps> = ({ navItems }) => {
 			</Links>
 			<div>
 				<h1>© Loeka Lievens</h1>
+				<Theme onClick={toggleTheme}>{theme === "dark" ? "light" : "dark"}</Theme>
 			</div>
 			<Links>
 				<ul className="icons">
