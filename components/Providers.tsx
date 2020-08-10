@@ -17,6 +17,9 @@ export const Providers: React.FC = ({ children }) => {
 	}, []);
 
 	const toggleTheme = () => {
+		const root = window.document.documentElement;
+		root.style.setProperty("--transition", "background .5s ease-in-out");
+
 		const newTheme = theme === "dark" ? "light" : "dark";
 		const newThemeData =
 			newTheme === "light"
@@ -24,10 +27,12 @@ export const Providers: React.FC = ({ children }) => {
 				: getThemeAsString(darkTheme);
 
 		JSON.parse(newThemeData).forEach(([name, value]) => {
-			window.document.documentElement.style.setProperty(name, value);
+			root.style.setProperty(name, value);
 		});
 
 		window.localStorage.setItem("color-mode", newTheme);
+
+		// root.style.removeProperty("--transition");
 
 		rawSetTheme(newTheme);
     };
