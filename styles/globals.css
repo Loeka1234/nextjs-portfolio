@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Megrim&display=swap");
 
 html {
 	font-size: 10px;
@@ -25,19 +25,19 @@ a {
 	box-sizing: border-box;
 }
 
-* {
-	transition: background .5s ease-in-out;
-}
-
 body {
 	font-family: "Open Sans", sans-serif;
 	font-size: 1.8rem;
-    font-weight: 400;
-    line-height: 1;
+	font-weight: 400;
+	line-height: 1;
 	color: var(--text-primary);
 	background: var(--bg-primary);
 }
 
 main {
 	height: calc(100vh - 70px - 105px);
+}
+
+* {
+	transition: background 0.5s ease-in-out;
 }
