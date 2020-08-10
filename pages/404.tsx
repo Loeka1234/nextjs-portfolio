@@ -1,5 +1,5 @@
 
-export default () => {
+const Custom404 = () => {
     return (
       <>
         <h1>404</h1>
@@ -7,3 +7,5 @@ export default () => {
       </>
     );
 }
+
+export default Custom404;

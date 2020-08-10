@@ -48,10 +48,7 @@ const UnderLine = styled.div<{ left: number; underlineWidth: number }>`
 `;
 
 export interface HeaderProps {
-	navItems: {
-		path: string;
-		name: string;
-	}[];
+	navItems: NavItems;
 	margin: number;
 	padding: number;
 	navMargin: number;
