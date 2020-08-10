@@ -18,7 +18,7 @@ export const Providers: React.FC = ({ children }) => {
 
 	const toggleTheme = () => {
 		const root = window.document.documentElement;
-		root.style.setProperty("--transition", "background .5s ease-in-out");
+		root.style.setProperty("--transition", "all .5s ease-in-out");
 
 		const newTheme = theme === "dark" ? "light" : "dark";
 		const newThemeData =
@@ -31,8 +31,6 @@ export const Providers: React.FC = ({ children }) => {
 		});
 
 		window.localStorage.setItem("color-mode", newTheme);
-
-		// root.style.removeProperty("--transition");
 
 		rawSetTheme(newTheme);
     };
