@@ -31,15 +31,14 @@ export default class MyDocument extends Document {
 	render() {
 		return (
 			<Html>
-				<Head>
+				<Head />
+				<body>
 					<script
 						src="/theming.js"
 						// @ts-ignore
 						lightTheme={getThemeAsString(lightTheme)}
 						darkTheme={getThemeAsString(darkTheme)}
 					/>
-				</Head>
-				<body>
 					<Main />
 					<NextScript />
 				</body>
