@@ -25,6 +25,10 @@ a {
 	box-sizing: border-box;
 }
 
+* {
+	transition: background .5s ease-in-out;
+}
+
 body {
 	font-family: "Open Sans", sans-serif;
 	font-size: 1.8rem;
