@@ -4,17 +4,15 @@ export const darkTheme = {
 	},
 	text: {
 		primary: "white",
-		secondary: "yellow",
 	},
 };
 
 export const lightTheme = {
-    background: {
-		primary: "darkgreen",
+	background: {
+		primary: "#011a27",
 	},
 	text: {
 		primary: "white",
-		secondary: "yellow",
 	},
 }
 
