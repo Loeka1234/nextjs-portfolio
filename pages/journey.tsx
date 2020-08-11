@@ -6,7 +6,7 @@ import { AiOutlineCode } from "react-icons/ai";
 
 const timelineItems: TimelineItems = [
 	{
-		title: "The begin",
+		title: "The beginning",
 		date: "±2015",
 		description:
 			"I discovered programming at the age of 12. I didn't understand much of it because I was really young. So I didn't continue to learn to program but I knew that I wanted to do something with programming later. ",

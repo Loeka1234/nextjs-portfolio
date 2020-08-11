@@ -1,28 +1,23 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import specialBox from "./../reusable/specialBox";
+import { useState, useEffect, useRef } from "react";
 
-const Wrapper = styled.div`
-    width: calc(100% - 6rem);
+const Wrapper = styled.div<{ fixedHeight: number | undefined }>`
+	width: calc(100% - 6rem);
+	margin: 3rem;
 	max-width: 250px;
-	border: 1px solid var(--text-secondary);
-	position: relative;
-    margin: 3rem;
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: calc(100% + 5px);
-		width: calc(100% + 5px);
-		border-bottom: 1px solid var(--text-secondary);
-		border-right: 1px solid var(--text-secondary);
-		z-index: -1;
+	${props => props.fixedHeight && `height: ${props.fixedHeight}px;`}
+	${specialBox}
+	@media screen and (max-width: 300px) {
+		max-width: 100%;
+		height: auto
 	}
 `;
 
 const Header = styled.h2`
 	margin: 1rem;
 	font-weight: 400;
-    font-size: 1.7em;
+	font-size: 1.4em;
 	text-align: center;
 `;
 
@@ -37,27 +32,107 @@ const Icons = styled.div`
 		}
 	}
 	img {
+		position: relative;
 		padding: 0.5rem;
-        width: 100%;
-		transition: filter .15s ease-in-out;
+		width: 100%;
+		transition: filter 0.15s ease-in-out, transform 0.2s ease-in-out;
 		&:hover {
 			filter: grayscale(0);
+			transform: scale(1.1);
 		}
 	}
 `;
 
+const ExtraInfo = styled.div`
+	display: none;
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--bg-primary-darker);
+	border-radius: 3px;
+	font-size: 1.6rem;
+	p {
+		padding: 0.5rem 1rem;
+		margin: 0;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: -4px;
+		left: 50%;
+		height: 15px;
+		width: 15px;
+		background: var(--bg-primary-darker);
+		transform: translateX(-50%) rotate(45deg);
+		z-index: -1;
+		-webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.75);
+		box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.75);
+	}
+`;
+
+const Img = styled.img``;
+
+const ImageWrap = styled.div`
+	position: relative;
+`;
+
 export interface TechnologiesProps {
-    directory: string;
-    images: string[];
-    heading: string;
+	directory: string;
+	images: { fileName: string; desc: string }[];
+	heading: string;
+	fixedHeight?: number;
 }
 
-const Technologies: React.FC<TechnologiesProps> = ({ directory, images, heading }) => {
+const Technologies: React.FC<TechnologiesProps> = ({
+	directory,
+	images,
+	heading,
+	fixedHeight,
+}) => {
+	const [visibleDesc, setVisibleDesc] = useState(undefined);
+	const nodes= useRef([]);
+
+	// TODO: Check if everything works
+	const handleClick = e => {
+		for(let node of nodes.current) {
+			if((node).contains(e.target)) return;
+		}
+		setVisibleDesc(undefined);
+	}
+
+	useEffect(() => {
+		document.addEventListener("click", handleClick, false);
+
+		return () => {
+			document.removeEventListener("click", handleClick, false);
+		}
+	}, [nodes])
+
 	return (
-		<Wrapper>
+		<Wrapper fixedHeight={fixedHeight}>
 			<Header>{heading}</Header>
-			<Icons id="icons">
-                {images.map((img, i) => <img src={directory + img} key={i} />)}
+			<Icons>
+				{images.map(({ fileName, desc }, i) => (
+					<>
+						<ImageWrap key={i}>
+							<Img
+								src={directory + fileName}
+								onClick={() => setVisibleDesc(i)}
+								ref={node => nodes.current[i] = node}
+							/>
+							<ExtraInfo
+								style={{
+									display:
+										visibleDesc === i ? "block" : "none",
+								}}
+							>
+								<p>{desc}</p>
+							</ExtraInfo>
+						</ImageWrap>
+					</>
+				))}
 			</Icons>
 		</Wrapper>
 	);

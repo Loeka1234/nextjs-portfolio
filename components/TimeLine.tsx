@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import { IconContext } from "react-icons";
+import specialBox from './reusable/specialBox';
 
 const Wrapper = styled.div<{ left: number; wrapperWidth: string }>`
 	width: 100%;
@@ -44,17 +45,7 @@ const Item = styled.div<{ left: number }>`
 		p {
 			padding: .2rem .5rem;
 		}
-		position: relative;
-		border: 1px solid var(--text-secondary-darker);
-		&::before {
-			content: "";
-			position: absolute;
-			top: 0; left: 0;
-			height: calc(100% + 5px);
-			width: calc(100% + 5px);
-			border-bottom: 1px solid var(--text-secondary-darker);
-			border-right: 1px solid var(--text-secondary-darker);
-		}
+		${specialBox}
 	}
 	&::before {
 		content: "";

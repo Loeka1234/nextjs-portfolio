@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import Bg from "../../public/svgs/bg.svg";
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
 	width: 100%;
 	height: 300px;
 	display: flex;
