@@ -38,6 +38,7 @@ const Links = styled.div`
 			padding: 0.1rem;
 			margin: .5rem;
 			text-transform: uppercase;
+			font-size: .9em;
 			a {
 				transition: all .6s ease;
 				&:hover {

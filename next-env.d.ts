@@ -7,3 +7,12 @@ interface NavItem {
 };
 
 type NavItems = NavItem[];
+
+interface TimelineItem {
+    title: string;
+    description: string;
+    date: string;
+    extraEl?: JSX.Element;
+};
+
+type TimelineItems = TimelineItem[];

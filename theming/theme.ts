@@ -8,11 +8,12 @@ export const darkTheme = {
 	},
 	text: {
 		primary: "#fff",
-		secondary: "#71cccc"
+		secondary: "#71cccc",
+		"secondary-darker": "#59abab"
 	},
 };
 
-// TODO: Colors for lightTheme
+// TODO: finish lightTheme
 export const lightTheme = {
 	bg: {
 		primary: "#fff",
@@ -22,7 +23,8 @@ export const lightTheme = {
 	},
 	text: {
 		primary: "#252a34",
-		secondary: "#484f5e"
+		secondary: "#484f5e",
+		"secondary-darker": "#343a45"
 	},
 }
 

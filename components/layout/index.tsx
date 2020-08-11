@@ -3,7 +3,7 @@ import * as React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const navItems = [
+const navItems: NavItems = [
 	{
 		path: "/",
 		name: "Home",
@@ -11,6 +11,10 @@ const navItems = [
 	{
 		path: "/about",
 		name: "About",
+	},
+	{
+		path: "/journey",
+		name: "My Journey"
 	},
 	{
 		path: "/projects",

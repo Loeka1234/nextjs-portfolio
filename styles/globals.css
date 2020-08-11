@@ -35,7 +35,7 @@ body {
 }
 
 main {
-	height: calc(100vh - 70px - 105px);
+	height: calc(100vh - 70px - 121px);
 }
 
 * {
