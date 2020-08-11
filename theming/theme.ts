@@ -4,7 +4,7 @@ export const darkTheme = {
 		primary: "#363636",
 		"primary-darker": "#1e1e1e",
 		secondary: "#086262",
-		"secondary-darker": "#033333"
+		"secondary-darker": "#033333",
 	},
 	text: {
 		primary: "#fff",

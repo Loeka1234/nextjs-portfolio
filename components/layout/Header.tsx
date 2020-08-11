@@ -1,7 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
+
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 const SHeader = styled.header`
 	display: flex;
@@ -10,10 +12,11 @@ const SHeader = styled.header`
 	background: var(--bg-primary-darker);
 `;
 
-const Logo = styled.h1<{ margin: number }>`
+const Logo = styled.h1<{ padding: number }>`
 	font-family: "Megrim", cursive;
 	color: var(--text-primary);
-	margin: ${props => props.margin}px;
+	padding: ${props => props.padding}px;
+	margin: 0;
 	font-size: 3rem;
 `;
 
@@ -29,10 +32,49 @@ const Ul = styled.ul`
 	padding: 0;
 `;
 
-const NavItem = styled.li<{ margin: number; padding: number }>`
+const DropDown = styled.div<{ dropDownWidth: number }>`
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: ${props => props.dropDownWidth}px;
+	background: var(--bg-primary-darker);
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	ul {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		list-style-type: none;
+		padding: 0;
+	}
+`;
+
+interface INavItem {
+	navPadding: number;
+	padding: number;
+	dropDown: boolean;
+}
+
+const NavItem = styled.li<INavItem>`
 	display: inline-block;
-	margin: ${props => props.margin}px 0;
-	padding: 0 ${props => props.padding}px;
+	padding: ${props => props.navPadding}px ${props => props.padding}px;
+	position: relative;
+	${props =>
+		props.dropDown &&
+		css`
+			${DropDown} {
+				display: none;
+			}
+			&:hover ${DropDown} {
+				display: block;
+			}
+			svg {
+				margin: -9px;
+				margin-left: -5px;
+			}
+		`}
 `;
 
 const UnderLine = styled.div<{ left: number; underlineWidth: number }>`
@@ -48,18 +90,29 @@ const UnderLine = styled.div<{ left: number; underlineWidth: number }>`
 	pointer-events: none;
 `;
 
+const DropDownItem = styled.li`
+	display: block;
+	padding: 1.5rem 0;
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+	&:hover {
+		color: var(--text-secondary);
+	}
+`;
+
 export interface HeaderProps {
 	navItems: NavItems;
 	margin: number;
 	padding: number;
-	navMargin: number;
+	navPadding: number;
 }
 
 const Header: React.FC<HeaderProps> = ({
 	navItems,
 	margin,
 	padding,
-	navMargin,
+	navPadding,
 }) => {
 	const refContainer = useRef(null);
 	const [widths, setWidths] = useState([]);
@@ -120,23 +173,42 @@ const Header: React.FC<HeaderProps> = ({
 		<SHeader>
 			<Link href="/">
 				<a>
-					<Logo margin={navMargin}>Loeka Lievens</Logo>
+					<Logo padding={navPadding}>Loeka Lievens</Logo>
 				</a>
 			</Link>
 			<Nav>
 				<UnderLine left={left} underlineWidth={underlineWidth} />
 				<Ul ref={refContainer}>
-					{navItems.map(({ path, name }, i) => (
+					{navItems.map(({ path, name, dropDown }, i) => (
 						<NavItem
-							margin={navMargin}
+							navPadding={navPadding}
 							padding={padding}
 							onMouseEnter={() => handleEnter(i)}
 							onMouseLeave={() => handleLeave(i)}
 							key={i}
+							dropDown={dropDown ? true : false}
 						>
 							<Link href={path}>
-								<a style={{ outline: "none" }}>{name}</a>
+								<a style={{ outline: "none" }}>
+									{name}
+									{dropDown && (
+										<RiArrowDropDownLine size={30} />
+									)}
+								</a>
 							</Link>
+							{dropDown && (
+								<DropDown dropDownWidth={widths[i]}>
+									<ul>
+										{dropDown.map(({ name, path }, i) => (
+											<DropDownItem key={i}>
+												<Link href={path}>
+													<a>{name}</a>
+												</Link>
+											</DropDownItem>
+										))}
+									</ul>
+								</DropDown>
+							)}
 						</NavItem>
 					))}
 				</Ul>

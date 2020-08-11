@@ -20,6 +20,20 @@ const navItems: NavItems = [
 	{
 		path: "/projects",
 		name: "Projects",
+		dropDown: [
+			{
+				path: "/projects/1",
+				name: "Project 1"
+			},
+			{
+				path: "/projects/2",
+				name: "Project 2"
+			},
+			{
+				path: "/projects/3",
+				name: "Project 3"
+			}
+		]
 	},
 	{
 		path: "/blog",
@@ -35,7 +49,7 @@ const Layout: React.FC = ({ children }) => {
 			<Head>
 				<title>{`Loeka Lievens | ${title}`}</title>
 			</Head>
-			<Header navItems={navItems} padding={30} margin={0} navMargin={20} />
+			<Header navItems={navItems} padding={30} margin={0} navPadding={20} />
 			<main>{children}</main>
 			<Footer navItems={navItems} />
 		</>

@@ -16,7 +16,7 @@ const timelineItems: TimelineItems = [
 		title: "School",
 		date: "01/09/2019",
 		description:
-			"I went to the fifth high school. I started studying computer science in Oudenaarde. I became very interested in programming. It has become one of my hobbies. At school, we started to learn Html, CSS, Javascript & C#.",
+			"I went to the fifth high year. I started studying computer science in Oudenaarde. I became very interested in programming. It has become one of my hobbies. At school, we started to learn HTML, CSS, Javascript & C#.",
 	},
 	{
 		title: "React",
