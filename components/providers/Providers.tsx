@@ -1,11 +1,11 @@
 // Providers
-import TitleProvider from "./TitleProvider";
+import SEOProvider from "./SEOProvider";
 import ThemeProvider from "./ThemeProvider";
 
 const Providers: React.FC = ({ children }) => {
 	return (
 		<ThemeProvider>
-			<TitleProvider>{children}</TitleProvider>
+			<SEOProvider>{children}</SEOProvider>
 		</ThemeProvider>
 	);
 };

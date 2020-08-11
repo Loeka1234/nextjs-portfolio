@@ -1,10 +1,10 @@
-import Title from "../components/Title";
+import SEO from "../components/SEO";
 
 const About = () => {
 	return (
-		<Title value="About me">
+		<SEO title="About me">
 			<div>About</div>
-		</Title>
+		</SEO>
 	);
 };
 

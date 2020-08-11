@@ -1,5 +1,5 @@
 import TimeLine from "../components/TimeLine";
-import Title from "../components/Title";
+import SEO from "../components/SEO";
 
 import { FcTimeline } from "react-icons/fc";
 import { AiOutlineCode } from "react-icons/ai";
@@ -51,9 +51,9 @@ const timelineItems: TimelineItems = [
 
 const Journey = () => {
 	return (
-		<Title value="My Journey">
+		<SEO title="My Journey">
 			<TimeLine items={timelineItems} />
-		</Title>
+		</SEO>
 	);
 };
 

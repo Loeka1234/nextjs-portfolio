@@ -1,9 +1,9 @@
-import Title from "../components/Title";
+import SEO from "../components/SEO";
 
 export default function Home() {
 	return (
-		<Title value="Home">
+		<SEO title="Home">
 			<div>Home</div>
-		</Title>
+		</SEO>
 	);
 }

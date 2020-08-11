@@ -41,6 +41,7 @@ const DropDown = styled.div<{ dropDownWidth: number }>`
 	background: var(--bg-primary-darker);
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
+	z-index: 3;
 	ul {
 		width: 100%;
 		display: flex;
