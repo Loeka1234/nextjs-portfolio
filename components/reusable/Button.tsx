@@ -29,6 +29,7 @@ const Button = styled.button<{ primary?: boolean; disableHover?: boolean }>`
 			`}
 	}
     transition: all .35s ease-in-out;
+	font-size: 1.4rem;
 `;
 
 Button.defaultProps = {

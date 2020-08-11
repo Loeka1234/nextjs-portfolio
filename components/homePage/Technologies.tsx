@@ -39,6 +39,7 @@ const Icons = styled.div`
 	img {
 		padding: 0.5rem;
         width: 100%;
+		transition: filter .15s ease-in-out;
 		&:hover {
 			filter: grayscale(0);
 		}
