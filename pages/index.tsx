@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Button from "../components/reusable/Button";
 import Link from "next/link";
 
+import Bg from "../public/svgs/bg.svg";
+
 const iUse = [
 	"html.svg",
 	"css.svg",
@@ -23,6 +25,9 @@ const Wrapper = styled.div`
 	background: var(--bg-secondary);
 	text-align: center;
 	position: relative;
+	* {
+		z-index: 1;
+	}
 `;
 
 const Header = styled.h1`
@@ -48,17 +53,27 @@ const Buttons = styled.div`
 `;
 
 const Background = styled.div`
+	z-index: 0;
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	img:first-child {
+	overflow: hidden;
+	svg {
 		position: absolute;
 		top: 0;
-		right: 0;
 		height: 100%;
-		background: var(--bg-secondary-darker);
+		fill: var(--bg-secondary-darker);
+		transform: scale(1.1);
+		transition: fill 0.5s ease-in-out;
+		&:first-child {
+			right: 0;
+		}
+		&:last-child {
+			left: 0;
+			transform: rotate(180deg);
+		}
 	}
 `;
 
@@ -89,7 +104,8 @@ export default function Home() {
 					</Link>
 				</Buttons>
 				<Background>
-					<img src="svgs/bg.svg" alt="background"/>
+					<Bg />
+					<Bg />
 				</Background>
 			</Wrapper>
 			<Technologies

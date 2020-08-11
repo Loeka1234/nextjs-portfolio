@@ -36,8 +36,8 @@ export default class MyDocument extends Document {
 					<script
 						src="/theming.js"
 						// @ts-ignore
-						lightTheme={getThemeAsString(lightTheme)}
-						darkTheme={getThemeAsString(darkTheme)}
+						lighttheme={getThemeAsString(lightTheme)}
+						darktheme={getThemeAsString(darkTheme)}
 					/>
 					<Main />
 					<NextScript />

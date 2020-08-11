@@ -20,3 +20,5 @@ interface TimelineItem {
 }
 
 type TimelineItems = TimelineItem[];
+
+declare module "*.svg";

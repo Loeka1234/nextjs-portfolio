@@ -16,7 +16,7 @@
     window.localStorage.setItem("color-mode", colorMode);
 
 	const theme = document.currentScript.getAttribute(
-		colorMode === "dark" ? "darkTheme" : "lightTheme"
+		colorMode === "dark" ? "darktheme" : "lighttheme"
     );
 
     root.style.setProperty("--initial-color-mode", colorMode);
