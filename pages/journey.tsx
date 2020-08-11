@@ -1,4 +1,5 @@
 import TimeLine from "../components/TimeLine";
+import Title from "../components/Title";
 
 import { FcTimeline } from "react-icons/fc";
 import { AiOutlineCode } from "react-icons/ai";
@@ -44,12 +45,16 @@ const timelineItems: TimelineItems = [
 		title: "Now",
 		date: "Now",
 		description: "I'm learning a lot and making a lot of projects.",
-		extraEl: <AiOutlineCode size={150} style={{margin: ".2rem"}} />
-	}
+		extraEl: <AiOutlineCode size={150} style={{ margin: ".2rem" }} />,
+	},
 ];
 
 const Journey = () => {
-	return <TimeLine items={timelineItems} />;
+	return (
+		<Title value="My Journey">
+			<TimeLine items={timelineItems} />
+		</Title>
+	);
 };
 
 export default Journey;

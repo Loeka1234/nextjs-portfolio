@@ -1,9 +1,9 @@
-import { createContext, useEffect, useState } from "react";
-import { getThemeAsString, lightTheme, darkTheme } from "../theming/theme";
+import { createContext, useState, useEffect } from "react";
+import { getThemeAsString, lightTheme, darkTheme } from "../../theming/theme";
 
 export const ThemeContext = createContext(undefined);
 
-export const Providers: React.FC = ({ children }) => {
+const ThemeProvider: React.FC = ({ children }) => {
 	const [theme, rawSetTheme] = useState<"light" | "dark" | undefined>(
 		undefined
 	);
@@ -33,13 +33,12 @@ export const Providers: React.FC = ({ children }) => {
 		window.localStorage.setItem("color-mode", newTheme);
 
 		rawSetTheme(newTheme);
-    };
-    
+	};
 	return (
-		<ThemeContext.Provider
-			value={{ theme, toggleTheme }}
-		>
-            {children}
-        </ThemeContext.Provider>
+		<ThemeContext.Provider value={{ theme, toggleTheme }}>
+			{children}
+		</ThemeContext.Provider>
 	);
 };
+
+export default ThemeProvider;

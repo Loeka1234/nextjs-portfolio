@@ -135,7 +135,7 @@ const Header: React.FC<HeaderProps> = ({
 							key={i}
 						>
 							<Link href={path}>
-								<a>{name}</a>
+								<a style={{ outline: "none" }}>{name}</a>
 							</Link>
 						</NavItem>
 					))}

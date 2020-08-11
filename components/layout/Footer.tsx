@@ -8,7 +8,7 @@ import {
 } from "react-icons/ai";
 import { IconContext } from "react-icons/";
 import { useContext } from "react";
-import { ThemeContext } from "../Providers";
+import { ThemeContext } from "../providers/ThemeProvider";
 
 const SFooter = styled.footer`
 	width: 100%;

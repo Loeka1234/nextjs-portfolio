@@ -1,7 +1,7 @@
 import Layout from "../components/layout";
 
 import "../styles/globals.css";
-import { Providers } from "../components/Providers";
+import Providers from "../components/providers/Providers";
 
 function MyApp({ Component, pageProps }) {
 	return (
