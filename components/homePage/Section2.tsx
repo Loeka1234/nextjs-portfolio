@@ -34,6 +34,11 @@ const Wrapper = styled.section`
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	height: 350px;
+	@media screen and (max-width: 800px) {
+		height: auto;
+	}
 `;
 
 const Div = styled.div`

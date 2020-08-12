@@ -7,18 +7,19 @@ import Bg from "../../public/svgs/bg.svg";
 
 const Wrapper = styled.section`
 	width: 100%;
-	height: 300px;
+	height: 370px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background: var(--bg-secondary);
+	background: linear-gradient(90deg, var(--bg-secondary-darker), var(--bg-secondary), var(--bg-secondary-darker));
 	text-align: center;
 	position: relative;
 	* {
 		z-index: 1;
 	}
 	@media screen and (max-width: 500px) {
+		height: 300px;
         h1 {
             font-size: 2.5rem;
         }
@@ -47,6 +48,7 @@ const Buttons = styled.div`
 	justify-content: center;
 	button {
 		margin: 1rem 3rem;
+		background: transparent;
 	}
 	@media screen and (max-width: 500px) {
 		button {
@@ -68,7 +70,7 @@ const Background = styled.div`
 		position: absolute;
 		top: 0;
 		height: 100%;
-		fill: var(--bg-secondary-darker);
+		fill: var(--bg-secondary-most-dark);
 		transform: scale(1.1);
 		transition: fill 0.5s ease-in-out;
 		&:first-child {
