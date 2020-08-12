@@ -6,6 +6,9 @@ import Link from "next/link";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
 const SHeader = styled.header`
+	z-index: 99;
+	position: sticky;
+	top: 0;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;

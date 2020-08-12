@@ -10,7 +10,7 @@ const Wrapper = styled.div<{ fixedHeight: number | undefined }>`
 	${specialBox}
 	@media screen and (max-width: 300px) {
 		max-width: 100%;
-		height: auto
+		height: auto;
 	}
 `;
 
@@ -92,46 +92,43 @@ const Technologies: React.FC<TechnologiesProps> = ({
 	fixedHeight,
 }) => {
 	const [visibleDesc, setVisibleDesc] = useState(undefined);
-	const nodes= useRef([]);
+	const nodes = useRef([]);
 
 	// TODO: Check if everything works
 	const handleClick = e => {
-		for(let node of nodes.current) {
-			if((node).contains(e.target)) return;
+		for (let node of nodes.current) {
+			if (node.contains(e.target)) return;
 		}
 		setVisibleDesc(undefined);
-	}
+	};
 
 	useEffect(() => {
 		document.addEventListener("click", handleClick, false);
 
 		return () => {
 			document.removeEventListener("click", handleClick, false);
-		}
-	}, [nodes])
+		};
+	}, [nodes]);
 
 	return (
 		<Wrapper fixedHeight={fixedHeight}>
 			<Header>{heading}</Header>
 			<Icons>
 				{images.map(({ fileName, desc }, i) => (
-					<>
-						<ImageWrap key={i}>
-							<Img
-								src={directory + fileName}
-								onClick={() => setVisibleDesc(i)}
-								ref={node => nodes.current[i] = node}
-							/>
-							<ExtraInfo
-								style={{
-									display:
-										visibleDesc === i ? "block" : "none",
-								}}
-							>
-								<p>{desc}</p>
-							</ExtraInfo>
-						</ImageWrap>
-					</>
+					<ImageWrap key={i}>
+						<Img
+							src={directory + fileName}
+							onClick={() => setVisibleDesc(i)}
+							ref={node => (nodes.current[i] = node)}
+						/>
+						<ExtraInfo
+							style={{
+								display: visibleDesc === i ? "block" : "none",
+							}}
+						>
+							<p>{desc}</p>
+						</ExtraInfo>
+					</ImageWrap>
 				))}
 			</Icons>
 		</Wrapper>
