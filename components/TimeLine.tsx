@@ -7,7 +7,7 @@ import specialBox from './reusable/specialBox';
 
 const Wrapper = styled.div<{ left: number; wrapperWidth: string }>`
 	width: 100%;
-	height: 100%;
+	height: var(--main-min-height);
 	position: relative;
 	&::before {
 		content: "";
