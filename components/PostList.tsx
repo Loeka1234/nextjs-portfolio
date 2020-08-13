@@ -28,7 +28,7 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
 			<Ul>
 				{posts.map(({ date, id, title }, i) => (
 					<Post key={i}>
-						<Link href={`/blog/${id}`}>
+						<Link href="/blog/[id]" as={`/blog/${id}`}>
 							<a>{title}</a>
 						</Link>
 						<br />
