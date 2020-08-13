@@ -1,4 +1,5 @@
 import { getAllPostsIds, getPostData } from "../../utils/posts";
+import { GetStaticProps, GetStaticPaths } from "next";
 
 const Post: React.FC<{ postData: PostMetadataWithHtml }> = ({ postData }) => {
 	return (
@@ -12,20 +13,21 @@ const Post: React.FC<{ postData: PostMetadataWithHtml }> = ({ postData }) => {
 
 export default Post;
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = getAllPostsIds();
 	return {
 		paths,
 		fallback: false,
 	};
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const postData = await getPostData(params.id);
 	console.log(postData);
 	return {
 		props: {
 			postData,
 		},
+		revalidate: false,
 	};
-}
+};
