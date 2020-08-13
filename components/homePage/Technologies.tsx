@@ -120,6 +120,7 @@ const Technologies: React.FC<TechnologiesProps> = ({
 							src={directory + fileName}
 							onClick={() => setVisibleDesc(i)}
 							ref={node => (nodes.current[i] = node)}
+							alt="technology"
 						/>
 						<ExtraInfo
 							style={{
