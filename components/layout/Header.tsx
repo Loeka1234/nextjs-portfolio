@@ -16,11 +16,14 @@ const SHeader = styled.header`
 `;
 
 const Logo = styled.h1<{ padding: number }>`
-	font-family: "Megrim", cursive;
 	color: var(--text-primary);
 	padding: ${props => props.padding}px;
 	margin: 0;
-	font-size: 3rem;
+	font-size: 2.7rem;
+	font-weight: 400;
+	span {
+		color: var(--tint-primary);
+	}
 `;
 
 const Nav = styled.nav`
@@ -177,7 +180,9 @@ const Header: React.FC<HeaderProps> = ({
 		<SHeader>
 			<Link href="/">
 				<a>
-					<Logo padding={navPadding}>Loeka Lievens</Logo>
+					<Logo padding={navPadding}>
+						<span>L</span>oeka <span>L</span>ievens
+					</Logo>
 				</a>
 			</Link>
 			<Nav>
