@@ -27,6 +27,11 @@ const SFooter = styled.footer`
 		font-weight: 600;
 		margin: 1rem;
 	}
+	@media screen and (max-width: 800px) {
+		h1 {
+			font-size: 1.2em;
+		}
+	}
 `;
 
 const Links = styled.div`
@@ -36,11 +41,11 @@ const Links = styled.div`
 		list-style-type: none;
 		li {
 			padding: 0.1rem;
-			margin: .5rem;
+			margin: 0.5rem;
 			text-transform: uppercase;
-			font-size: .9em;
+			font-size: 0.9em;
 			a {
-				transition: all .6s ease;
+				transition: all 0.6s ease;
 				&:hover {
 					color: var(--text-secondary);
 				}
@@ -52,6 +57,13 @@ const Links = styled.div`
 			li {
 				padding: 1rem;
 			}
+			@media screen and (max-width: 800px) {
+				flex-direction: column;
+				li {
+					padding: .5rem;
+					margin: 0;
+				}
+			}
 		}
 	}
 `;
@@ -59,7 +71,7 @@ const Links = styled.div`
 const Theme = styled.p`
 	background: var(--text-primary);
 	color: var(--bg-primary);
-	padding: .6rem 1rem;
+	padding: 0.6rem 1rem;
 	border-radius: 3px;
 	margin: 0;
 	user-select: none;
@@ -90,7 +102,9 @@ const Footer: React.FC<FooterProps> = ({ navItems }) => {
 			</Links>
 			<div>
 				<h1>© Loeka Lievens</h1>
-				<Theme onClick={toggleTheme}>{theme === "dark" ? "light" : "dark"}</Theme>
+				<Theme onClick={toggleTheme}>
+					{theme === "dark" ? "light" : "dark"}
+				</Theme>
 			</div>
 			<Links>
 				<ul className="icons">
