@@ -50,7 +50,7 @@ const Layout: React.FC = ({ children }) => {
 				<title>{`Loeka Lievens | ${title}`}</title>
 				<meta name="description" content={description}/>
 			</Head>
-			<Header navItems={navItems} padding={30} margin={0} navPadding={20} />
+			<Header navItems={navItems} />
 			<main>{children}</main>
 			<Footer navItems={navItems} />
 		</>
