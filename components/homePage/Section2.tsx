@@ -36,6 +36,7 @@ const Wrapper = styled.section`
 	justify-content: center;
 	align-items: center;
 	height: 350px;
+	background: var(--bg-primary);
 	@media screen and (max-width: 800px) {
 		height: auto;
 	}

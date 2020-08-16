@@ -16,6 +16,7 @@ const SFooter = styled.footer`
 	justify-content: space-evenly;
 	align-items: center;
 	background: var(--bg-primary-darker);
+	border-top: 2px solid var(--text-secondary);
 	div {
 		width: 300px;
 		display: flex;

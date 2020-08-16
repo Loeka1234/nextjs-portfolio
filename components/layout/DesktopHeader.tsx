@@ -13,6 +13,7 @@ const Header = styled.header`
 	justify-content: space-evenly;
 	align-items: center;
 	background: var(--bg-primary-darker);
+	border-bottom: 2px solid var(--text-secondary);
 `;
 
 const Logo = styled.h1<{ padding: number }>`

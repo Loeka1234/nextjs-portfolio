@@ -11,6 +11,7 @@ const timelineItems: TimelineItems = [
 		description:
 			"I discovered programming at the age of 12. I didn't understand much of it because I was really young. So I didn't continue to learn to program but I knew that I wanted to do something with programming later. ",
 		extraEl: <FcTimeline size={150} style={{ margin: "1rem" }} />,
+		sparkle: true
 	},
 	{
 		title: "School",

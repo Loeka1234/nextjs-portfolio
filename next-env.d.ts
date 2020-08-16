@@ -17,6 +17,7 @@ interface TimelineItem {
 	description: string;
 	date: string;
 	extraEl?: JSX.Element;
+	sparkle?: boolean;
 }
 
 type TimelineItems = TimelineItem[];

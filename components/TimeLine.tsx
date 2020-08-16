@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import { IconContext } from "react-icons";
-import specialBox from './reusable/specialBox';
+import specialBox from "./reusable/specialBox";
+import Sparkles from "./reusable/Sparkles";
 
 const Wrapper = styled.div<{ left: number; wrapperWidth: string }>`
 	width: 100%;
@@ -43,7 +44,7 @@ const Item = styled.div<{ left: number }>`
 		}
 		h1,
 		p {
-			padding: .2rem .5rem;
+			padding: 0.2rem 0.5rem;
 		}
 		${specialBox}
 	}
@@ -133,12 +134,17 @@ const TimeLine: React.FC<TimeLineProps> = ({ items }) => {
 					/>
 				</IconContext.Provider>
 			</Navigation>
-			{items.map(({ title, description, date, extraEl }, i) => (
+			{items.map(({ title, description, date, extraEl, sparkle }, i) => (
 				<Item left={left + i * distanceUntilNextItem} key={i}>
 					<div className="extraEl">{extraEl && extraEl}</div>
 					<p className="date">{date}</p>
 					<div className="wrap">
-						<h1>{title}</h1>
+						{sparkle && (
+							<Sparkles>
+								<h1>{title}</h1>
+							</Sparkles>
+						)}
+						{!sparkle && <h1>{title}</h1>}
 						<p>{description}</p>
 					</div>
 				</Item>

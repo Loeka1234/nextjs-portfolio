@@ -2,7 +2,7 @@
 export const darkTheme = {
 	bg: {
 		primary: "#363636",
-		"primary-darker": "#1e1e1e",
+		"primary-darker": "#262626",
 		secondary: "#086262",
 		"secondary-darker": "#044a4a",
 		"secondary-most-dark": "#033333",
@@ -21,7 +21,7 @@ export const darkTheme = {
 export const lightTheme = {
 	bg: {
 		primary: "#fff",
-		"primary-darker": "#e3e3e3",
+		"primary-darker": "#d8d7d9",
 		secondary: "#4bc6cc",
 		"secondary-darker": "#3a9a9e",
 		"secondary-most-dark": "#31898c",
