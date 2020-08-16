@@ -44,7 +44,7 @@ const Icons = styled.div`
 `;
 
 const ExtraInfo = styled.div`
-	display: none;
+	pointer-events: none;
 	position: absolute;
 	top: -20px;
 	left: 50%;
@@ -52,6 +52,7 @@ const ExtraInfo = styled.div`
 	background: var(--bg-primary-darker);
 	border-radius: 3px;
 	font-size: 1.6rem;
+	transition: opacity .2s ease-in-out;
 	p {
 		padding: 0.5rem 1rem;
 		margin: 0;
@@ -92,23 +93,14 @@ const Technologies: React.FC<TechnologiesProps> = ({
 	fixedHeight,
 }) => {
 	const [visibleDesc, setVisibleDesc] = useState(undefined);
-	const nodes = useRef([]);
 
-	// TODO: Check if everything works
-	const handleClick = e => {
-		for (let node of nodes.current) {
-			if (node.contains(e.target)) return;
-		}
-		setVisibleDesc(undefined);
+	const handleEnter = (i: number) => {
+		setVisibleDesc(i);
 	};
 
-	useEffect(() => {
-		document.addEventListener("click", handleClick, false);
-
-		return () => {
-			document.removeEventListener("click", handleClick, false);
-		};
-	}, [nodes]);
+	const handleLeave = () => {
+		setVisibleDesc(undefined);
+	};
 
 	return (
 		<Wrapper fixedHeight={fixedHeight}>
@@ -119,12 +111,13 @@ const Technologies: React.FC<TechnologiesProps> = ({
 						<Img
 							src={directory + fileName}
 							onClick={() => setVisibleDesc(i)}
-							ref={node => (nodes.current[i] = node)}
+							onMouseEnter={() => handleEnter(i)}
+							onMouseLeave={handleLeave}
 							alt="technology"
 						/>
 						<ExtraInfo
 							style={{
-								display: visibleDesc === i ? "block" : "none",
+								opacity: visibleDesc === i ? 1 : 0,
 							}}
 						>
 							<p>{desc}</p>

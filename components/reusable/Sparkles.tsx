@@ -52,11 +52,11 @@ const spin = keyframes`
 const SvgWrapper = styled.div`
 	position: absolute;
 	pointer-events: none;
-	animation: ${growAndShrink} 600ms ease-in-out forwards;
+	animation: ${growAndShrink} 700ms ease-in-out forwards;
 `;
 
 const Svg = styled.svg`
-	animation: ${spin} 600ms linear forwards;
+	animation: ${spin} 700ms linear forwards;
 `;
 
 const SparkleInstance: React.FC<SparkleInstanceProps> = ({
@@ -109,7 +109,7 @@ const Sparkles: React.FC<SparklesProps> = ({ children, color }) => {
 
 			setSparkles(nextSparkles);
 		},
-		50,
+		200,
 		500
 	);
 

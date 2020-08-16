@@ -12,7 +12,7 @@ const specialBox = css`
 		width: calc(100% + 5px);
 		border-bottom: 1px solid var(--text-secondary);
 		border-right: 1px solid var(--text-secondary);
-		z-index: -1;
+		z-index: 0;
 	}
 `;
 
