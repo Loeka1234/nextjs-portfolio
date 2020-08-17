@@ -3,19 +3,22 @@ import styled from "styled-components";
 import specialBox from "./reusable/specialBox";
 
 const Wrapper = styled.div`
-	width: 500px;
-	margin: 1rem;
-	${specialBox};
+	position: relative;
+	width: 95%;
+	max-width: 600px;
 `;
 
 const Ul = styled.ul`
 	list-style-type: none;
-    padding: 1rem;
-    margin: 0;
+	padding: 1rem;
+	margin: 0;
+	width: 100%;
 `;
 
 const Post = styled.li`
-    margin: 1rem 0;
+	margin: 3rem 0;
+	padding: 1.5rem;
+	${specialBox};
 `;
 
 export interface PostListProps {
