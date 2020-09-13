@@ -1,1 +1,1 @@
-New portfolio website made in next js (Working In Progress)
+New portfolio website made in next js (Work In Progress)
